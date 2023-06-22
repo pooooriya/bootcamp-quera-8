@@ -1,5 +1,6 @@
 import { Button, Grid, Stack, Typography } from "@mui/material";
 import { Card, Layout } from "components";
+import Link from "next/link";
 import useCategories from "services/Queries/useCategories";
 import useProducts from "services/Queries/useProducts";
 
@@ -14,7 +15,9 @@ export const HomePage: React.FC = (): JSX.Element => {
         </Typography>
         <Grid container gap={3} justifyContent="flex-start" alignItems="center">
           {query?.data?.map((item) => (
-            <Button key={item}>{item}</Button>
+            <Link href={`/category/${item}`} key={item}>
+              <Button key={item}>{item}</Button>
+            </Link>
           ))}
         </Grid>
       </Stack>
@@ -25,7 +28,9 @@ export const HomePage: React.FC = (): JSX.Element => {
         <Grid container gap={3} justifyContent="center" alignItems="center">
           {productQuery?.data?.map((item) => (
             <Grid item xs={2} key={item.id}>
-              <Card {...item} />
+              <Link href={`/product/${item.id}`}>
+                <Card {...item} />
+              </Link>
             </Grid>
           ))}
         </Grid>
