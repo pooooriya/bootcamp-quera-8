@@ -2,6 +2,7 @@ import { QueraLogo } from "assets";
 import Image from "next/image";
 import { Button } from "@mui/material";
 import { Stack } from "@mui/system";
+import Link from "next/link";
 interface IHeaderProps {}
 
 export const Header: React.FC<IHeaderProps> = (): JSX.Element => {
@@ -12,7 +13,13 @@ export const Header: React.FC<IHeaderProps> = (): JSX.Element => {
       alignItems="center"
       direction="row"
     >
-      <Stack>
+      <Stack
+        component={Link}
+        href="/"
+        sx={{
+          cursor: "pointer",
+        }}
+      >
         <Image
           src={QueraLogo}
           alt={"لوگوی کئورا کالا"}

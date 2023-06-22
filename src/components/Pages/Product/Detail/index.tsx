@@ -1,7 +1,8 @@
-import { Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import { Layout } from "components/Layout";
+import { AppContext } from "context/store";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import { IProductDetail } from "types/api.types";
 
 export const ProductDetail: React.FunctionComponent<IProductDetail> = ({
@@ -10,8 +11,27 @@ export const ProductDetail: React.FunctionComponent<IProductDetail> = ({
   title,
   description,
   price,
-  rating,
 }): JSX.Element => {
+  const { Checkout, setCheckout } = useContext(AppContext);
+  const handleClick = () => {
+    // check if exist => count ++++
+    const perv = Checkout.find((x) => x.id == id);
+    if (!perv) {
+      const product: Partial<IProductDetail> & { count: number } = {
+        id,
+        image,
+        title,
+        price,
+        count: 1,
+      };
+      setCheckout([...Checkout, product]);
+    } else {
+      const newCheckout = Checkout.filter((x) => x.id != id);
+      perv.count = perv.count + 1;
+      newCheckout.push(perv);
+      setCheckout(newCheckout);
+    }
+  };
   return (
     <Layout>
       <Stack justifyContent="center" alignItems="center" spacing={3}>
@@ -26,6 +46,9 @@ export const ProductDetail: React.FunctionComponent<IProductDetail> = ({
         </Stack>
         <Stack>
           <Typography>{price}</Typography>
+        </Stack>
+        <Stack>
+          <Button onClick={handleClick}>Add To Card</Button>
         </Stack>
       </Stack>
     </Layout>
