@@ -14,7 +14,6 @@ export const ProductDetail: React.FunctionComponent<IProductDetail> = ({
 }): JSX.Element => {
   const { Checkout, setCheckout } = useContext(AppContext);
   const handleClick = () => {
-    // check if exist => count ++++
     const perv = Checkout.find((x) => x.id == id);
     if (!perv) {
       const product: Partial<IProductDetail> & { count: number } = {

@@ -21,7 +21,7 @@ export const CategoryDetail = (): JSX.Element => {
     <Layout>
       <Grid container gap={3} justifyContent="center" alignItems="center">
         {query.data?.map((item: any) => (
-          <Grid item xs={2} key={item.id}>
+          <Grid item xs={12} md={2} key={item.id}>
             <Link href={`/product/${item.id}`}>
               <Card {...item} />
             </Link>

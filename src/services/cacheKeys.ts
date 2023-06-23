@@ -3,4 +3,5 @@ export const CacheKeys = {
   GetAllProducts: "products",
   GetCategoryDetail: "category",
   GetProductDetail: "product",
+  Login: "login",
 };

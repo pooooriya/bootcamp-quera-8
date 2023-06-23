@@ -3,4 +3,5 @@ export const ApiRoutes = {
   products: "products",
   categoryDetail: "products/category/{:slug}",
   productDetail: "products/{:productId}",
+  login: "auth/login",
 };

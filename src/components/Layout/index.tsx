@@ -1,6 +1,8 @@
 import { Stack } from "@mui/system";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { useContext, useEffect } from "react";
+import { AppContext } from "context/store";
 
 interface ILayoutProps extends React.PropsWithChildren {}
 

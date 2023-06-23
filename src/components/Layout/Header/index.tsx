@@ -1,11 +1,16 @@
 import { QueraLogo } from "assets";
 import Image from "next/image";
-import { Button } from "@mui/material";
+import { Button, Fade, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import Link from "next/link";
+import { AppContext } from "context/store";
+import { useContext, useState } from "react";
+import { Basket } from "components/Base/Basket";
 interface IHeaderProps {}
 
 export const Header: React.FC<IHeaderProps> = (): JSX.Element => {
+  const { User } = useContext(AppContext);
+  const [open, setOpen] = useState(false);
   return (
     <Stack
       className="flex flex-row bg-gray-200 p-5"
@@ -39,16 +44,29 @@ export const Header: React.FC<IHeaderProps> = (): JSX.Element => {
         <Button>درباره ی ما</Button>
         <Button>ارتباط با ما</Button>
       </Stack>
-      <Stack spacing={3} direction="row">
-        <Stack>
-          <Button>ثبت نام</Button>
+      {User.isAuthenticated ? (
+        <>
+          <Stack position="relative">
+            <Stack
+              component="a"
+              onClick={() => setOpen(!open)}
+              sx={{
+                userSelect: "none",
+                cursor: "pointer",
+              }}
+            >
+              سبد خرید
+            </Stack>
+            {open && <Basket />}
+          </Stack>
+        </>
+      ) : (
+        <Stack spacing={3} direction="row">
+          <Stack>
+            <Button>ورود</Button>
+          </Stack>
         </Stack>
-        <Stack>
-          <Button variant="outlined" color="primary">
-            عضویت
-          </Button>
-        </Stack>
-      </Stack>
+      )}
     </Stack>
   );
 };
