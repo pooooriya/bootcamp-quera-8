@@ -1,0 +1,175 @@
+// var let const
+// scope
+// reasign
+// hosisting
+
+//reasign
+// var - let
+
+//SUCCESS
+// var name = "ali";
+// name="pouriya";
+// let name2 = "ali";
+// name2="pouriya";
+
+// FAILED
+// const name3 = "ali";
+// name3="pouriya";
+
+// Scope
+// block scope {}
+// function scope functio(){}
+// global scope
+
+// Block Scope
+// {
+//   var x = 29;
+//   const x2 = 29;
+//   let x22 = 29;
+// }
+// Hoisting =>
+
+// datatype :
+// ---premetive
+// ---nonpremetive
+
+//premetive
+// string
+// number
+// boolean
+// null
+// undefined
+// bigInt
+// symbol
+
+// nonpremetive => Object
+// array
+// function
+// class
+// object
+
+// premetive => by value
+
+// const x = 2;
+// const y = x;
+// console.log(y);
+// console.log(x === y)
+
+// nonpremtive => by refrence
+// const person = {};
+// const people = {};
+// console.log(person === people)
+
+// falsy value
+// false
+// null
+// undefiend
+// 0
+// -0
+// ""
+// NAN
+
+// function
+// declration function
+//Hositing
+function test() {
+  console.log("ali");
+}
+// expression function
+const test2 = () => {
+  console.log("ali2");
+};
+
+// cast
+// implict
+// explicit
+
+// const x23 = "true";
+// if (Boolean(x23)) {
+//   console.log("Ok2");
+// }
+
+// if (x23 === "true") {
+//   console.log("alo");
+// }
+
+// string =>boolean
+// Boolean(string)
+// !!string
+
+//string => number
+// Number(string)
+
+// assignment
+// == , ===
+
+// == | corcion
+// === | corcion free
+
+// corcion
+// 5 == "5"
+// ENgine => string = number (corcion)
+
+// == | زمانی که تایپ چک نمیشه و مقدار چک میشه
+// === | هم تایپ و هم مقدار چک میشه
+
+// object
+// array
+
+const person = {
+  name: "ali",
+  family: "babaali"
+};
+
+// add to object
+// person.age = 20;
+// person["age"] = 20;
+
+// delete from object
+// delete person.family;
+// console.log(person)
+
+// modify to object =>UPSERT => (Update - Insert)
+// person.age = 20;
+// person["age"] = 20;
+
+// object => array
+// Object.keys(person).map(x=>{
+//   console.log(person[x])
+// })
+
+// hasOwnProperty inside object
+// console.log(person.hasOwnProperty("name"));
+
+// readonly object
+// Object.freeze(person);
+// Object.seal(person);
+
+// rest spread
+// const x = { name: "ali", family: "mohseni" };
+// const y = { ...x, name: "ali" };
+
+// array
+const numbers = [0, 2, 0, 1, 6, 5, 8, 7];
+
+//add
+// numbers.push(10);
+
+//remove from first
+// numbers.shift()
+
+//remove from last
+// numbers.pop();
+
+// loop
+// numbers.map(item=>{})
+// numbers.forEach(item=>{})
+
+// edit
+
+// const index = numbers.indexOf(2);
+// numbers.splice(index, 1);
+// console.log(numbers);
+
+// filter
+// console.log(numbers.filter((x) => x > 2));
